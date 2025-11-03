@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="NerionSoft" width="120" height="120" style="border-radius:16px;">
+  <img src="logo.png" alt="NerionSoft" width="120" height="120" style="border-radius:16px;">
 </p>
 
 <h1 align="center">NerionSoft</h1>
