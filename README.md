@@ -1,18 +1,22 @@
-# NerionSoft .github Repository
+# NerionSoft GitHub Standards
 
-This repository contains the organization-wide GitHub configuration for NerionSoft.
+This repository defines the shared GitHub standards for NerionSoft projects.
 
-## Purpose
+## What is managed here
 
-This repo centralizes:
-- Pull request templates
-- Issue templates
-- CODEOWNERS
-- Security policy
-- Community health files
+- Default PR and issue templates
+- CODEOWNERS rules
+- Security policy and reporting process
+- Community and contribution guidelines
 
-These files apply by default to all repositories in the organization.
+## Philosophy
 
-## Notes
+We aim for:
+- Clear documentation
+- Secure development practices
+- Consistent workflows across projects
 
-Individual repositories can override these defaults by defining their own files.
+## Contribution
+
+Changes to this repository affect all projects.  
+Please review carefully before modifying templates or policies.
