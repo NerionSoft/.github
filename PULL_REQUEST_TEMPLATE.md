@@ -1,8 +1,8 @@
 ## Change (What & Why)
--
+
 
 ## Verification (How to test)
--
+
 
 ## Risk level
 - [ ] Low
@@ -10,4 +10,3 @@
 - [ ] High
 
 ## Notes (optional)
--
