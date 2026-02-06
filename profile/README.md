@@ -5,81 +5,50 @@
 <h1 align="center">NerionSoft</h1>
 
 <p align="center">
-  <em>We build useful web experiences, reliable transactional systems, resilient networks, and pragmatic AI that helps real teams.</em>
+  <em>We ship revenue-driving digital products fast, clean, and maintainable with full delivery ownership from kickoff to operations.</em>
 </p>
 
 <p align="center">
-  <a href="https://github.com/NerionSoft"><img alt="GitHub Org" src="https://img.shields.io/badge/GitHub-NerionSoft-111111"></a>
-  <img alt="Stack" src="https://img.shields.io/badge/Stack-Next.js%20•%20Node%20•%20Postgres%20•%20K8s%20•%20Python-333">
-  <img alt="Made with care" src="https://img.shields.io/badge/Made%20with-Care-6a5acd">
+  <img alt="Outcome" src="https://img.shields.io/badge/Outcome-More%20Revenue%20%26%20Less%20Ops-16a34a?logo=trendmicro&logoColor=white">
+  <img alt="Execution" src="https://img.shields.io/badge/Execution-Fast%20%26%20Calibrated-2563eb?logo=lightning&logoColor=white">
+  <img alt="Delivery" src="https://img.shields.io/badge/Delivery-Weekly%20Checkpoints-f97316?logo=gitbook&logoColor=white">
+  <img alt="Maintenance" src="https://img.shields.io/badge/Run-Ops%20%26%20Maintenance-7c3aed?logo=serverfault&logoColor=white">
+  <img alt="Trust" src="https://img.shields.io/badge/Trust-GDPR%20%E2%80%A2%20Security%20%E2%80%A2%20IP-0ea5e9?logo=letsencrypt&logoColor=white">
 </p>
 
 ---
 
-## Why we exist
+## What you get
 
-Because a website must sell, a transaction must clear, a network must hold, and AI must **actually** help.  
-NerionSoft starts from a simple idea: fuse **design, engineering, and ops** to ship products that solve concrete problems—without noise or empty jargon.
-
----
-
-## What you get (without a never-ending list)
-
-A **website** that loads fast, ranks well, and tells your value proposition clearly.  
-A **transactional flow** that won’t flinch on launch day: carts, payments, vouchers, tax, and accounting exports—frictionless for customers, auditable for back-office.  
-A **network** that matches reality: clean VLANs, a polished captive portal, observability, and backups that **work** when needed.  
-**AI** that serves the business: classification, extraction, recommendations—models chosen for impact, not hype.
-
----
+- **A product that sells**: clear UX, fast pages, conversion-minded flows, measurable KPIs
+- **Automated operations**: fewer manual steps, fewer errors, reliable exports & reporting
+- **Production-grade delivery**: stable releases, observability, and clean handover
 
 ## How we work
 
-We begin by **understanding your constraints**: timeline, processes, team, budget.  
-We **design the experience** before writing a single line.  
-We **build in modules**: a solid base (infra as code, CI/CD), then switchable capabilities—booking, payments, CRM, analytics.  
-We **operate** with readable metrics: availability, latency, success rates, conversions.  
-And we **handover properly**: short docs, clear access, and an ops runbook.
+**Kickoff → Plan → Ship → Iterate → Operate**
 
----
+- Short scope, clear milestones, and **weekly checkpoints**
+- Small releases, fast feedback, **no surprises**
+- We stay accountable after launch: **maintenance, monitoring, improvements**
 
-## Our raw materials
+## What we build
 
-Frontend speaks **Next.js** to the browser.  
-APIs think in **TypeScript/Node** (or **Python** when data gets heavier).  
-Truth lives in **PostgreSQL** (and befriends **Redis** for speed).  
-Containers travel with **Docker**, orchestrated by **Kubernetes**.  
-Everything is observable: **logs, metrics, traces**. And backed up—encrypted.
+- Websites & landing pages that convert
+- Booking / payments / vouchers / customer portals
+- Internal tools (back-office, CRM-lite, dashboards, workflows)
+- Pragmatic AI (extraction, routing, summaries) when it saves time or money
 
----
+## Trust layer (built-in)
 
-## Security, by design
+- **GDPR-ready** by design (data minimization, retention, access control)
+- **Security baseline** (reviews, scans, secrets management)
+- **IP & licensing clarity** (ownership, OSS hygiene, dependency tracking)
 
-Encryption in transit and at rest, managed secrets, least privilege, access logs.  
-No vague promises: **concrete controls** (scans, reviews, restore tests) and written responsibilities.  
-Trust isn’t declared—it’s **measured**.
+## Contact
 
----
-
-## Snapshots from the field
-
-- A hotel sells **gift cards** and handles **pre-bookings** without friction; staff export to accounting in two clicks.  
-- An SME connects its **site** to its **ERP**, tracks conversions, and tunes campaigns with reliable numbers.  
-- A Wi-Fi network **welcomes** guests with a clean captive portal, isolates traffic, and stays readable for IT.  
-- A **sober** back-office centralizes data; an AI classifies, summarizes, and **accelerates** the day-to-day.
-
----
-
-## Get in touch
-
-Got an idea, a pain point, a project?  
-Share context, audience, and deadline—we’ll reply with a **clear, costed, executable game plan**.
-
-- ✉️ contact@nerionsoft.com  
-- 🏢 Paris, France  
-
-
----
+✉️ contact@nerionsoft.com - Paris, France
 
 <p align="center">
-  <sub>© NerionSoft — Tech • Cloud • AI • Products. Build what matters. Operate with calm.</sub>
+  <sub>© NerionSoft - Ship fast. Grow calmly. Maintain properly.</sub>
 </p>
