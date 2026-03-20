@@ -1,0 +1,20 @@
+name: Next.js CI
+
+on:
+  push:
+    branches: [$default-branch, integration]
+  pull_request:
+    branches: [$default-branch, integration]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    uses: NerionSoft/.github/.github/workflows/nextjs-ci.yml@main
+    with:
+      node-version: "20"
+      run-sonar: true
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

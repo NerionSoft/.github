@@ -1,0 +1,45 @@
+name: Release (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      release-type:
+        description: "Release type for release-please"
+        required: false
+        type: string
+        default: "node"
+    outputs:
+      release_created:
+        description: "Whether a release was created"
+        value: ${{ jobs.release-please.outputs.release_created }}
+      tag_name:
+        description: "The tag name of the release"
+        value: ${{ jobs.release-please.outputs.tag_name }}
+      major:
+        description: "Major version number"
+        value: ${{ jobs.release-please.outputs.major }}
+      minor:
+        description: "Minor version number"
+        value: ${{ jobs.release-please.outputs.minor }}
+      patch:
+        description: "Patch version number"
+        value: ${{ jobs.release-please.outputs.patch }}
+
+jobs:
+  release-please:
+    name: Release Please
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      major: ${{ steps.release.outputs.major }}
+      minor: ${{ steps.release.outputs.minor }}
+      patch: ${{ steps.release.outputs.patch }}
+    steps:
+      - uses: googleapis/release-please-action@a02a34c4d625f9be7cb89156071d8567266a2445 # v4.2.0
+        id: release
+        with:
+          release-type: ${{ inputs.release-type }}

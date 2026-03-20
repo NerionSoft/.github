@@ -1,0 +1,6 @@
+{
+  "name": "Next.js CI",
+  "description": "Full Next.js CI pipeline: lint, format, typecheck, test, build, E2E, SonarCloud",
+  "iconName": "octicon code",
+  "categories": ["Node.js", "TypeScript", "Next.js"]
+}
