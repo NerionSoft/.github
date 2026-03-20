@@ -1,0 +1,6 @@
+{
+  "name": "NerionSoft CI",
+  "description": "Lint, test and build with pnpm",
+  "iconName": "rocket",
+  "categories": ["Node.js", "TypeScript"]
+}

@@ -1,0 +1,17 @@
+name: "📘 Documentation"
+description: Corriger ou améliorer la documentation
+title: "[DOC] "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème identifié
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Correction proposée
+    validations:
+      required: false
