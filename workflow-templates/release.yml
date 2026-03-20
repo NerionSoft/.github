@@ -1,0 +1,14 @@
+name: Release
+
+on:
+  push:
+    branches: [$default-branch]
+
+jobs:
+  release:
+    uses: NerionSoft/.github/.github/workflows/reusable-release.yml@main
+    with:
+      release-type: node
+    permissions:
+      contents: write
+      pull-requests: write

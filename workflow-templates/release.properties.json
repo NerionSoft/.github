@@ -1,0 +1,6 @@
+{
+  "name": "Release",
+  "description": "Automated releases with release-please (Conventional Commits)",
+  "iconName": "octicon rocket",
+  "categories": ["Continuous Deployment"]
+}
