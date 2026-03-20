@@ -1,0 +1,10 @@
+title: "[Idea] "
+labels: []
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposition
+      placeholder: Décris ton idée
+    validations:
+      required: true
