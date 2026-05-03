@@ -1,0 +1,6 @@
+{
+  "name": "Lint",
+  "description": "YAML, Markdown, and GitHub Actions linting with SHA pin check",
+  "iconName": "octicon checklist",
+  "categories": ["Continuous Integration"]
+}
