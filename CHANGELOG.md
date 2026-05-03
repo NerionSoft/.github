@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/NerionSoft/.github/compare/v1.0.0...v1.1.0) (2026-05-03)
+
+
+### Features
+
+* add linting configurations for YAML and Markdown files ([576eda1](https://github.com/NerionSoft/.github/commit/576eda10c1a99f428966526419b6e90e984e9c53))
+* enhance README & adding reusable CI/CD workflows and templates ([c21b499](https://github.com/NerionSoft/.github/commit/c21b499a61d58c11032bf8beb82c47e227497f4a))
+* implement reusable linting workflow for YAML and Markdown with SHA pin check ([25ccb5f](https://github.com/NerionSoft/.github/commit/25ccb5f49c5ec859564d93a5349375da5b5f3998))
+* update YAML linting configuration and pin action versions for consistency ([87ce7c2](https://github.com/NerionSoft/.github/commit/87ce7c22cafc08004a01cc02e715ac11d0a61de6))
+
+
+### Bug Fixes
+
+* remove unnecessary branch specification from linting workflow ([78c0360](https://github.com/NerionSoft/.github/commit/78c0360740a34b8b8016273a3b3376986fe61c69))
+* update markdown linting rules and improve formatting in documentation ([dba6741](https://github.com/NerionSoft/.github/commit/dba6741bf6ef566a8ad6c897c5e25eaea8216901))
+
 ## 1.0.0 (2026-03-20)
 
 
