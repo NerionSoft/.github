@@ -1,17 +1,17 @@
-name: "⚙️ CI/CD Request"
-description: Modification ou amélioration du pipeline
+name: "CI/CD Request"
+description: Pipeline change or improvement
 title: "[CI/CD] "
 labels: ["ci-cd", "devops"]
 body:
   - type: textarea
     id: objective
     attributes:
-      label: Objectif
+      label: Objective
     validations:
       required: true
   - type: textarea
     id: detail
     attributes:
-      label: Détail technique
+      label: Technical details
     validations:
       required: false

@@ -1,29 +1,29 @@
-name: "🔒 Security Issue"
-description: Reporter une vulnérabilité
+name: "Security Issue"
+description: Report a vulnerability
 title: "[SECURITY] "
 labels: ["security", "critical"]
 body:
   - type: markdown
     attributes:
-      value: "🚨 **Info sensible → security@nerionsoft.com**"
+      value: "**Sensitive information — email security@nerionsoft.com instead**"
   - type: textarea
     id: description
     attributes:
-      label: Description de la vulnérabilité
+      label: Vulnerability description
     validations:
       required: true
   - type: checkboxes
     id: impact
     attributes:
-      label: Impact potentiel
+      label: Potential impact
       options:
-        - label: Exposition de données
-        - label: Escalade de privilèges
+        - label: Data exposure
+        - label: Privilege escalation
         - label: RCE / Injection
-        - label: Faille d'authentification
+        - label: Authentication bypass
   - type: textarea
     id: steps
     attributes:
-      label: Reproduction / Recommandation
+      label: Reproduction / Recommendation
     validations:
       required: false

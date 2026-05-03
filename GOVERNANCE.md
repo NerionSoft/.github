@@ -1,15 +1,15 @@
 # Governance
 
-## Rôles
+## Roles
 
-- **Maintainers** (`@nerionsoft/NST-Core`) : review, merge, architecture et priorités
-- **Contributors** : issues et pull requests selon `CONTRIBUTING.md`
+- **Maintainers** (`@nerionsoft/NST-Core`): review, merge, architecture, and priorities
+- **Contributors**: issues and pull requests per `CONTRIBUTING.md`
 
-## Décisions
+## Decisions
 
-Les décisions techniques sont prises collégialement au sein de l'équipe core.
+Technical decisions are made collectively within the core team.
 
-## Modifications de ce repository
+## Changes to this repository
 
-Ce repo `.github` impacte tous les projets NerionSoft.
-Toute modification nécessite la review d'au moins un maintainer.
+This `.github` repo impacts all NerionSoft projects.
+Any change requires review by at least one maintainer.
