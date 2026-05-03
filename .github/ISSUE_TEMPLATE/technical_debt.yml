@@ -1,5 +1,5 @@
-name: "🧹 Technical Debt"
-description: Dette technique à corriger
+name: "Technical Debt"
+description: Technical debt to address
 title: "[DEBT] "
 labels: ["technical-debt"]
 body:
@@ -7,12 +7,12 @@ body:
     id: description
     attributes:
       label: Description
-      placeholder: Quelle dette ? Pourquoi existe-t-elle ?
+      placeholder: What debt? Why does it exist?
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposition de résolution
+      label: Proposed resolution
     validations:
       required: false

@@ -1,6 +1,6 @@
 # Support
 
-- Questions / aide : ouvrir une [GitHub Discussion](https://github.com/orgs/NerionSoft/discussions) ou demander en interne
-- Bugs : utiliser le template **Bug Report** dans les issues
-- Sécurité : ne pas ouvrir d'issue publique → security@nerionsoft.com
-- Contact général : contact@nerionsoft.com
+- Questions / help: open a [GitHub Discussion](https://github.com/orgs/NerionSoft/discussions) or ask internally
+- Bugs: use the **Bug Report** issue template
+- Security: do not open a public issue — email security@nerionsoft.com
+- General contact: contact@nerionsoft.com

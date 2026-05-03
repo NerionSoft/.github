@@ -1,24 +1,24 @@
-name: "✨ Feature Request"
-description: Proposer une fonctionnalité ou amélioration
+name: "Feature Request"
+description: Propose a new feature or improvement
 title: "[FEATURE] "
 labels: ["feature", "enhancement"]
 body:
   - type: textarea
     id: context
     attributes:
-      label: Contexte / Besoin
+      label: Context / Need
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposition
+      label: Proposal
     validations:
       required: true
   - type: textarea
     id: acceptance
     attributes:
-      label: Critères d'acceptation
+      label: Acceptance criteria
       placeholder: |
         - [ ] AC1
         - [ ] AC2

@@ -2,4 +2,4 @@ blank_issues_enabled: true
 contact_links:
   - name: NerionSoft Security Contact
     url: mailto:security@nerionsoft.com
-    about: Signaler une vulnérabilité urgente ou sensible.
+    about: Report an urgent or sensitive vulnerability.

@@ -4,7 +4,7 @@ body:
   - type: textarea
     id: proposal
     attributes:
-      label: Proposition
-      placeholder: Décris ton idée
+      label: Proposal
+      placeholder: Describe your idea
     validations:
       required: true
