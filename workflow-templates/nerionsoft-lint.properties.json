@@ -1,0 +1,7 @@
+{
+  "name": "NerionSoft Lint",
+  "description": "Lint YAML, Markdown, GitHub Actions et SHA pin check via le workflow reusable NerionSoft.",
+  "iconName": "nerionsoft",
+  "categories": ["YAML", "Markdown", "Lint"],
+  "filePatterns": [".github/workflows/**"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "NerionSoft Python CI",
+  "description": "Pipeline CI Python : Ruff (lint + format), mypy, pytest avec coverage et SonarQube.",
+  "iconName": "nerionsoft",
+  "categories": ["Python", "CI"],
+  "filePatterns": ["pyproject.toml", "uv.lock", "requirements.txt"]
+}

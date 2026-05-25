@@ -1,0 +1,7 @@
+{
+  "name": "NerionSoft Release",
+  "description": "Release automatique via Release Please (Conventional Commits).",
+  "iconName": "nerionsoft",
+  "categories": ["Release", "CD"],
+  "filePatterns": ["package.json", "pyproject.toml"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "NerionSoft Next.js CI",
+  "description": "Pipeline CI Next.js complète : lint, format, typecheck, test, build, E2E et SonarQube.",
+  "iconName": "nerionsoft",
+  "categories": ["Node.js", "Next.js", "CI"],
+  "filePatterns": ["package.json", "next.config.*"]
+}

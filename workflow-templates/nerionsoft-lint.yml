@@ -1,0 +1,16 @@
+name: Lint
+
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
+
+jobs:
+  lint:
+    uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-gh-lint.yml@main
+    # with:
+    #   run-actionlint: true
+    #   run-yamllint: true
+    #   run-markdownlint: true
+    #   run-pin-check: true
