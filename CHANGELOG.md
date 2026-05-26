@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/NerionSoft/.github/compare/v1.1.0...v1.2.0) (2026-05-25)
+
+
+### Features
+
+* add reusable CI workflows for NerionSoft projects including linting and release automation ([1c70ac2](https://github.com/NerionSoft/.github/commit/1c70ac29e97c3d67da1ee27d2928307a91abba0d))
+
 ## [1.1.0](https://github.com/NerionSoft/.github/compare/v1.0.0...v1.1.0) (2026-05-03)
 
 
