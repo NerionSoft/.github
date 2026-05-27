@@ -1,0 +1,27 @@
+name: Lint CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, integration]
+
+jobs:
+  lint:
+    uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-lint-ci.yml@main
+    with:
+      run-actionlint: true
+      run-yamllint: true
+      run-markdownlint: true
+      run-pin-check: true
+      yamllint-file-or-dir: "."
+      markdownlint-globs: "**/*.md"
+      pin-check-allowlist: ""
+      run-sonar: true
+      sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
+      sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
+    permissions:
+      contents: read

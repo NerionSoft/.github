@@ -12,6 +12,8 @@ permissions:
 jobs:
   release:
     uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-release.yml@main
+    with:
+      release-type: "simple"
     # with:
     #   release-type: "node"
     #   update-floating-tags: true

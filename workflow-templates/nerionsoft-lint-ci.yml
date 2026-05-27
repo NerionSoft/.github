@@ -1,4 +1,4 @@
-name: Lint
+name: Lint CI
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint:
-    uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-gh-lint.yml@main
+    uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-lint-ci.yml@main
     # with:
     #   run-actionlint: true
     #   run-yamllint: true
