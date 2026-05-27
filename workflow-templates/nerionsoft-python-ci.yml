@@ -15,6 +15,9 @@ jobs:
     #   run-mypy: true
     #   run-test: true
     #   run-sonar: false
+    #   sonar-project-key: ""
+    #   sonar-project-name: ""
     # secrets:
     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     #   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    #   SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
