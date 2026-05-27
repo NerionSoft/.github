@@ -13,3 +13,4 @@ jobs:
     uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-release.yml@main
     # with:
     #   release-type: "node"
+    #   update-floating-tags: true
