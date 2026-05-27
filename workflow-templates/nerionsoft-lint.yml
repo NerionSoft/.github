@@ -18,8 +18,8 @@ jobs:
     #   markdownlint-globs: "**/*.md"
     #   pin-check-allowlist: "NerionSoft/nerionsoft-cicd"
     #   run-sonar: false
-    #   sonar-project-key: ""
-    #   sonar-project-name: ""
+    #   sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
+    #   sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}
     # secrets:
     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     #   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

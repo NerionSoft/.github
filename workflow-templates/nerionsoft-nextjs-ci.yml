@@ -18,8 +18,8 @@ jobs:
     #   run-build: true
     #   run-e2e: true
     #   run-sonar: false
-    #   sonar-project-key: ""
-    #   sonar-project-name: ""
+    #   sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
+    #   sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}
     # secrets:
     #   CI_DATABASE_URL: ${{ secrets.CI_DATABASE_URL }}
     #   CI_BETTER_AUTH_SECRET: ${{ secrets.CI_BETTER_AUTH_SECRET }}
