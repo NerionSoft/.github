@@ -14,3 +14,15 @@ jobs:
     # with:
     #   release-type: "node"
     #   update-floating-tags: true
+
+  # Build & push the image, only when Release Please cuts a release.
+  # REGISTRY + Harbor credentials are configured at org level; this repo only
+  # needs vars.IMAGE_NAME and a Dockerfile. Uncomment to enable.
+  # build:
+  #   needs: release
+  #   if: ${{ needs.release.outputs.release_created == 'true' }}
+  #   uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-build-push.yml@main
+  #   with:
+  #     image-name: ${{ vars.IMAGE_NAME }}
+  #     version: ${{ needs.release.outputs.tag_name }}
+  #   secrets: inherit
