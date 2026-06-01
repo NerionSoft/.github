@@ -17,6 +17,8 @@ jobs:
     #   run-test: true
     #   run-build: true
     #   run-e2e: true
+    #   run-hadolint: false
+    #   dockerfiles: "Dockerfile"   # whitespace/newline-separated paths or globs
     #   run-sonar: false
     #   sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
     #   sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}
