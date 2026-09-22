@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/NerionSoft/.github/compare/v1.2.0...v1.3.0) (2026-05-27)
+
+
+### Features
+
+* add SonarQube integration to CI workflows with configurable project key and name ([f97678e](https://github.com/NerionSoft/.github/commit/f97678e2d53e1c7cc7426aa8e24fda79f2abd908))
+* update CI configuration to use SonarQube project key and name from environment variables ([d1be9e8](https://github.com/NerionSoft/.github/commit/d1be9e8c182883252527129b86532c4a8b905980))
+
 ## [1.2.0](https://github.com/NerionSoft/.github/compare/v1.1.0...v1.2.0) (2026-05-25)
 
 
