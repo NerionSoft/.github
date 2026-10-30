@@ -217,12 +217,19 @@ Templates live in `workflow-templates/` at the repo root. Each template has two 
 
 ### `$default-branch` placeholder
 
-In template YAML files, use `$default-branch` instead of hardcoding `main`. GitHub replaces it with the actual default branch when the developer adopts the template.
+GitHub replaces `$default-branch` in a template with the repository's default branch when the developer adopts it.
+
+The NerionSoft templates do not use it: the default branch is `integration`, while releases are cut from `main`. They name the branches explicitly instead:
+
+- CI templates run on pushes and pull requests to both `main` and `integration`.
+- The release template runs on pushes to `main` only, so a release never starts from `integration`.
 
 ```yaml
 on:
   push:
-    branches: [$default-branch]
+    branches: [main, integration]
+  pull_request:
+    branches: [main, integration]
 ```
 
 ## Other managed files
