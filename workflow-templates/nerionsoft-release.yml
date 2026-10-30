@@ -1,8 +1,9 @@
 name: Release
 
+# Releases always come from main, even when the default branch is integration.
 on:
   push:
-    branches: [$default-branch]
+    branches: [main]
 
 permissions:
   contents: write
@@ -13,7 +14,9 @@ jobs:
     uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-release.yml@main
     # with:
     #   release-type: "node"
+    #   target-branch: "main"
     #   update-floating-tags: true
+    #   sync-branch: "integration"   # or "integration/<repo name>"; "" = off
 
   # Build & push the image, only when Release Please cuts a release.
   # REGISTRY + Harbor credentials are configured at org level; this repo only
