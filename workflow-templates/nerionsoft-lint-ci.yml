@@ -17,6 +17,8 @@ jobs:
     #   yamllint-file-or-dir: "."
     #   markdownlint-globs: "**/*.md"
     #   pin-check-allowlist: "NerionSoft/nerionsoft-cicd"
+    #   run-gitleaks: true            # secret scan of the new commits
+    #   gitleaks-full-history: false
     #   run-sonar: false
     #   sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
     #   sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}

@@ -19,6 +19,8 @@ jobs:
     #   run-e2e: true
     #   run-hadolint: false
     #   dockerfiles: "Dockerfile"   # whitespace/newline-separated paths or globs
+    #   run-gitleaks: true            # secret scan of the new commits
+    #   gitleaks-full-history: false
     #   run-sonar: false
     #   sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
     #   sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}
