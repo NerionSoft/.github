@@ -21,25 +21,16 @@ This repository contains only Markdown, YAML, and JSON files. There are no depen
 
 Follow **Conventional Commits**: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `test:`, `ci:`.
 
-## Architecture: Reusable Workflows vs Workflow Templates
+## Architecture: Workflow Templates
 
-This repo provides CI/CD infrastructure in two distinct ways:
+The reusable CI/CD workflows live in **NerionSoft/nerionsoft-cicd** (`reusable-lint-ci.yml`, `reusable-nextjs-ci.yml`, `reusable-python-ci.yml`, `reusable-release.yml`, `reusable-build-push.yml`), not here. This repo only holds:
 
-1. **Reusable workflows** (`.github/workflows/`) — invoked by other repos via `workflow_call`:
-   - `nextjs-ci.yml` — full Next.js CI pipeline (lint, format, typecheck, test, build, E2E, SonarCloud). All steps are individually toggleable via boolean inputs. Uses pnpm + Node 20 by default.
-   - `reusable-release.yml` — release-please automation, outputs release metadata (tag, version components).
-   - Usage: `uses: NerionSoft/.github/.github/workflows/nextjs-ci.yml@main`
-
-2. **Workflow templates** (`workflow-templates/`) — starter templates that appear in the Actions tab of org repos. Each template has a `.yml` workflow and a `.properties.json` metadata file. These are copied into consuming repos (not called remotely).
-
-3. **This repo's own release workflow** (`.github/workflows/release.yml`) — runs release-please on push to `main`, then updates floating `vMAJOR` and `vMAJOR.MINOR` tags so consuming repos can pin to stable versions.
+1. **Workflow templates** (`workflow-templates/`) — starter workflows that appear in the Actions tab of org repos. Each template has a `.yml` workflow calling a nerionsoft-cicd reusable workflow at `@main`, and a `.properties.json` metadata file. They are copied into consuming repos (not called remotely). `nerionsoft-release.yml` passes the org secret `RELEASE_APP_PRIVATE_KEY` so Release Please and the backmerge act as the `nerionsoft-release` GitHub App (their pull requests then run CI).
+2. **Community health files** — defaults for every org repo (see Key Files).
 
 ## Release Automation
 
-- Uses **release-please** with `release-type: simple` (no package.json versioning).
-- Config: `release-please-config.json` + `.release-please-manifest.json`.
-- Changelog sections: Features, Bug Fixes, CI/CD, Documentation, Miscellaneous, Refactoring.
-- On release, floating major/minor tags are force-pushed (e.g., `v1`, `v1.0`).
+None: this repo has no workflow and no release (exempt from the NerionSoft update strategy). `CHANGELOG.md` is kept for history.
 
 ## Key Files
 
