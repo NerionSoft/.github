@@ -22,6 +22,9 @@ jobs:
     #   run-sonar: false
     #   sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
     #   sonar-project-name: ${{ vars.SONAR_PROJECT_NAME }}
+    #   sonar-quality-gate: false     # true once the project's gate is green
+    #   sonar-new-code: true          # send the release version to SonarQube
+    #   sonar-version-file: "version.txt"
     # secrets:
     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     #   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

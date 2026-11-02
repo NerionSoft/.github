@@ -16,7 +16,8 @@ jobs:
     #   release-type: "node"
     #   target-branch: "main"
     #   update-floating-tags: true
-    #   sync-branch: "integration"   # or "integration/<repo name>"; "" = off
+    #   backmerge-branch: "integration"   # or "integration/<repo name>"; "" = off
+    #   backmerge-auto-merge: true        # merge commit when no conflict
 
   # Build & push the image, only when Release Please cuts a release.
   # REGISTRY + Harbor credentials are configured at org level; this repo only

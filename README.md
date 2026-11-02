@@ -222,7 +222,7 @@ GitHub replaces `$default-branch` in a template with the repository's default br
 The NerionSoft templates do not use it: the default branch is the integration branch, while releases are cut from `main`. They name the branches explicitly instead:
 
 - CI templates run on pushes and pull requests to `main` and to the integration branch, named either `integration` or `integration/<repo name>` (team convention). A repository has one or the other: git cannot hold both.
-- The release template runs on pushes to `main` only, so a release never starts from the integration branch. A repository whose integration branch is `integration/<repo name>` sets `sync-branch` to that name.
+- The release template runs on pushes to `main` only, so a release never starts from the integration branch. A repository whose integration branch is `integration/<repo name>` sets `backmerge-branch` to that name.
 
 ```yaml
 on:
