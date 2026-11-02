@@ -19,6 +19,18 @@ CONTRIBUTING.md, SECURITY.md, ...         # Community health files (defaults for
 
 Each template is a small file, copied into the repository that adopts it, that calls a reusable workflow of nerionsoft-cicd at `@main`. The logic stays in nerionsoft-cicd: a fix there reaches every repository without touching them. Defaults are listed as comments in each template; uncomment only what differs.
 
+### Reusable workflows at a glance
+
+| Reusable workflow (nerionsoft-cicd) | What it runs | Template | Triggers |
+|---|---|---|---|
+| [`reusable-lint-ci.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-lint-ciyml-lint-ci) | actionlint, yamllint, markdownlint, SHA-pinned actions check, secret scan (gitleaks), SonarQube (off by default) | `nerionsoft-lint-ci.yml` | Push and pull request to `main` and the integration branch |
+| [`reusable-nextjs-ci.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-nextjs-ciyml-nextjs-ci) | Lint, format, typecheck, tests, build, secret scan, then E2E and SonarQube (Node 24, pnpm) | `nerionsoft-nextjs-ci.yml` | Same |
+| [`reusable-python-ci.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-python-ciyml-python-ci) | Ruff, mypy, pytest, secret scan, then SonarQube (uv) | `nerionsoft-python-ci.yml` | Same |
+| [`reusable-release.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-releaseyml-release) | Release Please, floating tags, backmerge from `main` into `integration`, acting as the `nerionsoft-release` GitHub App | `nerionsoft-release.yml` | Push to `main` |
+| [`reusable-build-push.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-build-pushyml-build--push-image) | Build of the OCI image and push to Harbor, tagged with the release version | Commented `build` job in `nerionsoft-release.yml` | After a release, chained on the release job |
+
+Inputs, outputs, secrets and defaults of each one: the [nerionsoft-cicd README](https://github.com/NerionSoft/nerionsoft-cicd#readme).
+
 ### Release (`nerionsoft-release.yml`)
 
 Runs on pushes to `main` and calls Release Please, the floating tags and the backmerge into `integration`:
