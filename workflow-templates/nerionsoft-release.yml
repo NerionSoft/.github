@@ -18,6 +18,10 @@ jobs:
     #   update-floating-tags: true
     #   backmerge-branch: "integration"   # or "integration/<repo name>"; "" = off
     #   backmerge-auto-merge: true        # merge commit when no conflict
+    # Org secret: Release Please and the backmerge act as the nerionsoft-release
+    # App, so the release and backmerge pull requests run CI.
+    secrets:
+      RELEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
 
   # Build & push the image, only when Release Please cuts a release.
   # REGISTRY + Harbor credentials are configured at org level; this repo only

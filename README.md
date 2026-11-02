@@ -1,190 +1,39 @@
 # NerionSoft GitHub Standards
 
-This repository defines shared GitHub standards, community health files, and **reusable CI/CD workflows** for all NerionSoft projects.
+This repository holds the organization's community health files and its **workflow templates**. The reusable CI/CD workflows themselves live in [NerionSoft/nerionsoft-cicd](https://github.com/NerionSoft/nerionsoft-cicd), whose README documents every input, output and secret.
 
 ## Repository structure
 
-```
-.github/
-  workflows/
-    nextjs-ci.yml              # Reusable workflow — Next.js CI pipeline
-    release.yml                # Reusable workflow — release-please
-  ISSUE_TEMPLATE/              # Issue forms (bug, feature, CI/CD, etc.)
-  DISCUSSION_TEMPLATE/         # Discussion category forms
-
-workflow-templates/            # Starter templates (visible in Actions > New workflow)
-  nextjs-ci.yml                # Template → calls the reusable CI
-  nextjs-ci.properties.json    # Template metadata
-  release.yml                  # Template → calls the reusable release
-  release.properties.json      # Template metadata
-  ci.yml                       # Legacy basic CI template
-  ci.properties.json
+```text
+workflow-templates/                       # Starter workflows (Actions > New workflow > "By NerionSoft")
+  nerionsoft-lint-ci.yml                  # → nerionsoft-cicd reusable-lint-ci.yml
+  nerionsoft-nextjs-ci.yml                # → nerionsoft-cicd reusable-nextjs-ci.yml
+  nerionsoft-python-ci.yml                # → nerionsoft-cicd reusable-python-ci.yml
+  nerionsoft-release.yml                  # → nerionsoft-cicd reusable-release.yml
+  <name>.properties.json                  # Template metadata
+profile/                                  # Organization profile page
+CONTRIBUTING.md, SECURITY.md, ...         # Community health files (defaults for every repo)
 ```
 
-## Reusable workflows
+## How the templates work
 
-### How it works
+Each template is a small file, copied into the repository that adopts it, that calls a reusable workflow of nerionsoft-cicd at `@main`. The logic stays in nerionsoft-cicd: a fix there reaches every repository without touching them. Defaults are listed as comments in each template; uncomment only what differs.
 
-The **reusable workflows** (in `.github/workflows/`) contain the centralized CI logic. The **workflow templates** (in `workflow-templates/`) are lightweight wrappers that call these reusable workflows. When a developer creates a new workflow from the template, they get a small file that delegates everything to the shared logic.
+### Release (`nerionsoft-release.yml`)
 
-```
-Developer repo                        This repo (.github)
-┌──────────────────┐                  ┌─────────────────────────┐
-│ .github/workflows│                  │ .github/workflows/      │
-│   ci.yml ────────┼──── calls ──────►│   nextjs-ci.yml         │
-│                  │  (workflow_call)  │   (lint, format, type,  │
-│                  │                  │    test, build, e2e,    │
-│                  │                  │    sonar)               │
-└──────────────────┘                  └─────────────────────────┘
-```
-
-### Next.js CI (`nextjs-ci.yml`)
-
-Full pipeline: lint, format check, typecheck, test (with coverage), build, E2E (Playwright), SonarCloud.
-
-**Quick setup — from the GitHub UI:**
-
-1. Go to your repo → **Actions** → **New workflow**
-2. Find **"Next.js CI"** under "By NerionSoft"
-3. Click **Configure** — GitHub copies the template into your repo
-4. Commit the file
-
-**Manual setup — create `.github/workflows/ci.yml` in your repo:**
+Runs on pushes to `main` and calls Release Please, the floating tags and the backmerge into `integration`:
 
 ```yaml
-name: CI
-
-on:
-  push:
-    branches: [main, integration]
-  pull_request:
-    branches: [main, integration]
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  ci:
-    uses: NerionSoft/.github/.github/workflows/nextjs-ci.yml@main
-    with:
-      node-version: "20"
-      run-sonar: true
+  release:
+    uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-release.yml@main
+    # Org secret: Release Please and the backmerge act as the nerionsoft-release
+    # App, so the release and backmerge pull requests run CI.
     secrets:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      RELEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
 ```
 
-**Available inputs:**
-
-| Input | Type | Default | Description |
-|---|---|---|---|
-| `node-version` | `string` | `"20"` | Node.js version |
-| `run-lint` | `boolean` | `true` | Run ESLint |
-| `run-format` | `boolean` | `true` | Run `pnpm format:check` |
-| `run-typecheck` | `boolean` | `true` | Run `tsc --noEmit` |
-| `run-test` | `boolean` | `true` | Run Vitest with coverage |
-| `run-build` | `boolean` | `true` | Build Next.js app |
-| `run-e2e` | `boolean` | `true` | Run Playwright E2E tests |
-| `run-sonar` | `boolean` | `false` | Run SonarCloud analysis |
-
-**Secrets:**
-
-| Secret | Required | Description |
-|---|---|---|
-| `SONAR_TOKEN` | Only if `run-sonar: true` | SonarCloud authentication token |
-
-**Pipeline graph:**
-
-```
-lint ──────┐
-format ────┤
-typecheck ─┼──► build ──► e2e
-test ──────┤
-     └─────────► sonar
-```
-
-**Disabling specific jobs:**
-
-```yaml
-jobs:
-  ci:
-    uses: NerionSoft/.github/.github/workflows/nextjs-ci.yml@main
-    with:
-      run-e2e: false      # skip Playwright
-      run-sonar: false     # skip SonarCloud
-      run-format: false    # skip format check
-```
-
-**Prerequisites in your project:**
-
-Your `package.json` must define these scripts (matching the jobs you enable):
-
-```json
-{
-  "scripts": {
-    "lint": "next lint",
-    "format:check": "prettier --check .",
-    "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
-    "build": "next build"
-  }
-}
-```
-
-### Release (`release.yml`)
-
-Automated releases using [release-please](https://github.com/googleapis/release-please) with Conventional Commits.
-
-**Setup — create `.github/workflows/release.yml` in your repo:**
-
-```yaml
-name: Release
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  release:
-    uses: NerionSoft/.github/.github/workflows/release.yml@main
-    with:
-      release-type: node
-    permissions:
-      contents: write
-      pull-requests: write
-```
-
-**Available inputs:**
-
-| Input | Type | Default | Description |
-|---|---|---|---|
-| `release-type` | `string` | `"node"` | Release type (`node`, `python`, `go`, etc.) |
-
-**Outputs** (usable by downstream jobs):
-
-| Output | Description |
-|---|---|
-| `release_created` | `true` if a new release was created |
-| `tag_name` | The tag (e.g., `v1.2.3`) |
-| `major`, `minor`, `patch` | Version components |
-
-**Example — deploy after release:**
-
-```yaml
-jobs:
-  release:
-    uses: NerionSoft/.github/.github/workflows/release.yml@main
-    permissions:
-      contents: write
-      pull-requests: write
-
-  deploy:
-    needs: release
-    if: ${{ needs.release.outputs.release_created == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Deploying ${{ needs.release.outputs.tag_name }}"
-```
+The `secrets:` block passes the private key of the `nerionsoft-release` GitHub App (org secret; its client ID is the org variable `RELEASE_APP_CLIENT_ID`). Without it the release still works, with the workflow token: the release and backmerge pull requests then only get CI runs waiting for an approval, and a published release triggers no other workflow. Outputs (`release_created`, `tag_name`, `major`, `minor`, `patch`) and inputs: see the nerionsoft-cicd README.
 
 ## Workflow templates — reference
 
@@ -219,7 +68,7 @@ Templates live in `workflow-templates/` at the repo root. Each template has two 
 
 GitHub replaces `$default-branch` in a template with the repository's default branch when the developer adopts it.
 
-The NerionSoft templates do not use it: the default branch is the integration branch, while releases are cut from `main`. They name the branches explicitly instead:
+The NerionSoft templates do not use it: releases are always cut from `main`, while CI also runs on the integration branch, and a few repositories (Hestia) use `integration` as their default branch. They name the branches explicitly instead:
 
 - CI templates run on pushes and pull requests to `main` and to the integration branch, named either `integration` or `integration/<repo name>` (team convention). A repository has one or the other: git cannot hold both.
 - The release template runs on pushes to `main` only, so a release never starts from the integration branch. A repository whose integration branch is `integration/<repo name>` sets `backmerge-branch` to that name.
