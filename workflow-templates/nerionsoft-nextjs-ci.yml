@@ -10,7 +10,7 @@ jobs:
   ci:
     uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-nextjs-ci.yml@main
     # with:
-    #   node-version: "24"
+    #   node-version: "26"
     #   run-lint: true
     #   run-format: true
     #   run-typecheck: true
