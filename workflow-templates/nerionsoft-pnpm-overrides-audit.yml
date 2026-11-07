@@ -17,6 +17,6 @@ jobs:
   overrides:
     uses: NerionSoft/nerionsoft-cicd/.github/workflows/reusable-pnpm-overrides-audit.yml@main
     # with:
-    #   working-directory: "."   # folder holding package.json and pnpm-lock.yaml
+    #   working-directory: "."   # folder holding package.json and the pnpm files
     #   report-only: false       # true = report without failing (while cleaning up)
     #   node-version: "26"
