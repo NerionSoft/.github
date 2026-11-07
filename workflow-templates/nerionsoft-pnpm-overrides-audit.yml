@@ -1,8 +1,9 @@
 name: pnpm overrides audit
 
 # Checks every Monday that each pnpm override is still needed (stale, absent,
-# unbounded or vulnerability-creating entries fail the run), and warns on each
-# minimumReleaseAgeExclude entry with its publication date. Scheduled runs
+# not applied, unbounded or vulnerability-creating entries fail the run), and
+# warns on each minimumReleaseAgeExclude entry with its publication date.
+# Scheduled runs
 # always use the default branch; run it by hand on another branch from the
 # Actions tab.
 on:
