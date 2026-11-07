@@ -10,6 +10,7 @@ workflow-templates/                       # Starter workflows (Actions > New wor
   nerionsoft-nextjs-ci.yml                # → nerionsoft-cicd reusable-nextjs-ci.yml
   nerionsoft-python-ci.yml                # → nerionsoft-cicd reusable-python-ci.yml
   nerionsoft-release.yml                  # → nerionsoft-cicd reusable-release.yml
+  nerionsoft-pnpm-overrides-audit.yml     # → nerionsoft-cicd reusable-pnpm-overrides-audit.yml
   <name>.properties.json                  # Template metadata
 profile/                                  # Organization profile page
 CONTRIBUTING.md, SECURITY.md, ...         # Community health files (defaults for every repo)
@@ -28,6 +29,7 @@ Each template is a small file, copied into the repository that adopts it, that c
 | [`reusable-python-ci.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-python-ciyml-python-ci) | Ruff, mypy, pytest, secret scan, then SonarQube (uv) | `nerionsoft-python-ci.yml` | Same |
 | [`reusable-release.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-releaseyml-release) | Release Please, floating tags, backmerge from `main` into `integration`, acting as the `nerionsoft-release` GitHub App | `nerionsoft-release.yml` | Push to `main` |
 | [`reusable-build-push.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-build-pushyml-build--push-image) | Build of the OCI image and push to Harbor, tagged with the release version | Commented `build` job in `nerionsoft-release.yml` | After a release, chained on the release job |
+| [`reusable-pnpm-overrides-audit.yml`](https://github.com/NerionSoft/nerionsoft-cicd#reusable-pnpm-overrides-audityml-pnpm-overrides-audit) | Checks that each pnpm override is still needed: audit with and without the overrides, fails on stale, absent, unbounded `>=` or vulnerability-creating entries | `nerionsoft-pnpm-overrides-audit.yml` | Every Monday 05:00 UTC (default branch) and by hand |
 
 Inputs, outputs, secrets and defaults of each one: the [nerionsoft-cicd README](https://github.com/NerionSoft/nerionsoft-cicd#readme).
 
@@ -46,6 +48,10 @@ jobs:
 ```
 
 The `secrets:` block passes the private key of the `nerionsoft-release` GitHub App (org secret; its client ID is the org variable `RELEASE_APP_CLIENT_ID`). Without it the release still works, with the workflow token: the release and backmerge pull requests then only get CI runs waiting for an approval, and a published release triggers no other workflow. Outputs (`release_created`, `tag_name`, `major`, `minor`, `patch`) and inputs: see the nerionsoft-cicd README.
+
+### pnpm overrides audit (`nerionsoft-pnpm-overrides-audit.yml`)
+
+For pnpm repositories. Runs every Monday on the default branch (GitHub runs scheduled workflows there only) and by hand from the Actions tab. While a repository still has stale overrides, set `report-only: true` so the weekly run reports without failing, then remove it once the overrides are cleaned up.
 
 ## Workflow templates — reference
 

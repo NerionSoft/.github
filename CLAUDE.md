@@ -25,7 +25,7 @@ Follow **Conventional Commits**: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`
 
 The reusable CI/CD workflows live in **NerionSoft/nerionsoft-cicd** (`reusable-lint-ci.yml`, `reusable-nextjs-ci.yml`, `reusable-python-ci.yml`, `reusable-release.yml`, `reusable-build-push.yml`), not here. This repo only holds:
 
-1. **Workflow templates** (`workflow-templates/`) — starter workflows that appear in the Actions tab of org repos. Each template has a `.yml` workflow calling a nerionsoft-cicd reusable workflow at `@main`, and a `.properties.json` metadata file. They are copied into consuming repos (not called remotely). `nerionsoft-release.yml` passes the org secret `RELEASE_APP_PRIVATE_KEY` so Release Please and the backmerge act as the `nerionsoft-release` GitHub App (their pull requests then run CI).
+1. **Workflow templates** (`workflow-templates/`) — starter workflows that appear in the Actions tab of org repos. Each template has a `.yml` workflow calling a nerionsoft-cicd reusable workflow at `@main`, and a `.properties.json` metadata file. They are copied into consuming repos (not called remotely). `nerionsoft-release.yml` passes the org secret `RELEASE_APP_PRIVATE_KEY` so Release Please and the backmerge act as the `nerionsoft-release` GitHub App (their pull requests then run CI). `nerionsoft-pnpm-overrides-audit.yml` is the only scheduled template (Monday 05:00 UTC, plus `workflow_dispatch`).
 2. **Community health files** — defaults for every org repo (see Key Files).
 
 ## Release Automation

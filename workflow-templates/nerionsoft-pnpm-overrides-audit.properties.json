@@ -1,0 +1,7 @@
+{
+  "name": "NerionSoft pnpm overrides audit",
+  "description": "Contrôle hebdomadaire des overrides pnpm : utiles, périmés, absents, bornes sans limite haute et versions vulnérables imposées.",
+  "iconName": "nerionsoft",
+  "categories": ["Node.js", "Security"],
+  "filePatterns": ["pnpm-lock.yaml", "pnpm-workspace.yaml"]
+}
