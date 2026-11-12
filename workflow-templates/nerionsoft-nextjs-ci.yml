@@ -17,6 +17,8 @@ jobs:
     #   run-test: true
     #   run-build: true
     #   run-e2e: true
+    #   run-knip: false               # dead code (needs a "knip" script)
+    #   knip-production: false        # also fail on code only tests use
     #   run-hadolint: false
     #   dockerfiles: "Dockerfile"   # whitespace/newline-separated paths or globs
     #   run-gitleaks: true            # secret scan of the new commits
